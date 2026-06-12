@@ -450,6 +450,7 @@ const INQUIRIES = [
     detail: "Non-replica, proscenium blackbox, 10 pax, Asian premiere. VERIFIED SCHED: Pictorial TBA · Reading Aug 31 · Blocking Sep 1–4 · Press con Sep 8 · Run thrus Sep 7–21 (4–10pm) · Ingress Sep 18–21 · Black Box tech Sep 22–30 (stage/sound/light, TDRs, 12pm–10pm) · Gala Preview Oct 1 · OPENING Oct 2 · Shows Sat/Sun 3pm+8pm thru Oct 25 + Fri pickup rehs Oct 9/16/23.",
     timeline: "REH AUG 31 · TECH SEP 22–OCT 1 · OPENS OCT 2 · WKNDS THRU OCT 25",
     need: "Projections-heavy design + needs a researcher",
+    sked: "./prodsked-labyrinth.pdf",
     flag: "🚨 OPENING NIGHT OCT 2 = SARANGGOLA NIGHT. Plan: design + tech Sep 22–30, train an operator for opening wknd.",
   },
   {
@@ -990,6 +991,30 @@ function InquiriesPage({ done, toggle }) {
             >
               {replied ? "✓ REPLIED" : "MARK REPLIED"}
             </button>
+            {q.sked && (
+              <a
+                href={q.sked}
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  display: "inline-block",
+                  marginTop: 10,
+                  marginLeft: 8,
+                  fontFamily: mono,
+                  fontSize: 10,
+                  fontWeight: 700,
+                  letterSpacing: "0.15em",
+                  padding: "7px 14px",
+                  cursor: "pointer",
+                  background: "transparent",
+                  color: C.cyan,
+                  border: `2px solid ${C.cyan}`,
+                  textDecoration: "none",
+                }}
+              >
+                📎 VIEW PROD SKED
+              </a>
+            )}
           </div>
         );
       })}
