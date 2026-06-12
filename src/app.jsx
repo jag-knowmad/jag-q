@@ -921,9 +921,11 @@ function InquiriesPage({ done, toggle }) {
       {/* OCTOBER COLLISION MAP */}
       <div style={{ marginTop: 16, border: `1px solid ${C.magenta}`, background: C.panel, padding: "12px 14px" }}>
         <div style={{ fontFamily: mono, fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", color: C.magenta, marginBottom: 8 }}>
-          ▓▓ AUG–OCT 2026 COLLISION MAP
+          ▓▓ JUN–OCT 2026 COLLISION MAP
         </div>
         {[
+          ["JUN 16", "Ben & Ben mtg w/ Mads, Max & Loraine — 11PM NY", C.yellow],
+          ["JUN 19", "Ben & Ben initial concept presentation w/ creatives — 11PM NY", C.yellow],
           ["AUG 22", "Fire & Ice event w/ Ice (Kaye R.)", C.yellow],
           ["SEP 11", "HARANA @ Alabang — Steve Vesagas' father-in-law bday (via Tita Peachy)", C.yellow],
           ["SEP 14–19", "Kenkoy (ARDP) — tentative", C.yellow],
