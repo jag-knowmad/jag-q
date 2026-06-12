@@ -437,7 +437,7 @@ const INQUIRIES = [
     id: "inq-benben",
     from: "Ben & Ben — SARANGGOLA",
     via: "CONTRACTED",
-    project: "First self-produced major concert — Smart Araneta Coliseum",
+    project: "Saranggola — Smart Araneta Coliseum",
     detail: "Visuals Director. Concept presentation Jun 19. This is the anchor date — everything else schedules around it.",
     timeline: "OCT 2, 2026 (FIXED)",
     need: "Visual Designer / Visuals Director / VJ",
