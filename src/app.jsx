@@ -636,7 +636,7 @@ function MonthGrid({ year, month, monthName }) {
 
   return (
     <div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(7,1fr)", gap: 2, marginTop: 10 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(7,minmax(0,1fr))", gap: 2, marginTop: 10 }}>
         {["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"].map((d) => (
           <div key={d} style={{ fontFamily: mono, fontSize: 8.5, fontWeight: 700, letterSpacing: "0.1em", color: C.dim, textAlign: "center", padding: "4px 0" }}>
             {d}
@@ -644,7 +644,7 @@ function MonthGrid({ year, month, monthName }) {
         ))}
       </div>
       {weeks.map((week, wi) => (
-        <div key={wi} style={{ display: "grid", gridTemplateColumns: "repeat(7,1fr)", gap: 2, marginTop: 2 }}>
+        <div key={wi} style={{ display: "grid", gridTemplateColumns: "repeat(7,minmax(0,1fr))", gap: 2, marginTop: 2 }}>
           {week.map((day) => {
             const k = keyOf(day.y, day.m, day.d);
             const evs = EVENTS[k] || [];
@@ -656,6 +656,8 @@ function MonthGrid({ year, month, monthName }) {
                 onClick={() => setSelected(isSel ? null : k)}
                 style={{
                   minHeight: 64,
+                  minWidth: 0,
+                  overflow: "hidden",
                   background: isSel ? "#1A1A30" : C.cell,
                   border: `1px solid ${isSel ? C.cyan : C.border}`,
                   padding: "3px 2px",
