@@ -119,7 +119,7 @@ const EVENTS = {
   "2026-06-15": [{ t: "4PM", title: "Ofc hrs with Daniel", cat: "work" }],
   "2026-06-16": [
     { t: "1PM", title: "Billy Clark — CultureHub, 66 E 4th St", cat: "event" },
-    { t: "11PM", title: "Meeting Ben & Ben", cat: "work" },
+    { t: "11PM", title: "Meeting Ben & Ben w/ Mads, Max & Loraine", cat: "work" },
   ],
   "2026-06-17": [{ t: "10:30AM", title: "Vibecon — CMACC (thru Jun 18)", cat: "event" }],
   "2026-06-18": [
