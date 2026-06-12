@@ -132,7 +132,7 @@ const EVENTS = {
   "2026-06-30": [{ t: "—", title: "I-House housing ends — MOVE OUT", cat: "travel" }],
   "2026-07-04": [{ t: "—", title: "Independence Day", cat: "hol" }],
   "2026-07-12": [{ t: "—", title: "FLIGHT: NYC → Dubai", cat: "travel" }],
-  "2026-07-14": [{ t: "—", title: "FLIGHT: Dubai → MNL (TO REBOOK)", cat: "due" }],
+  "2026-07-14": [{ t: "—", title: "FLIGHT: Dubai → SEA (TO REBOOK)", cat: "due" }],
   "2026-07-28": [{ t: "EVE", title: "Gawad Buhay — Aliw Theater, MNL (RSVP?)", cat: "travel" }],
   "2026-09-11": [{ t: "—", title: "HARANA — bday event, Alabang (Tita Peachy, TBC)", cat: "event" }],
   "2026-09-14": [{ t: "—", title: "Kenkoy / ARDP — tentative week, thru Sep 19", cat: "work" }],
