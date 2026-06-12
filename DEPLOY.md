@@ -1,15 +1,17 @@
-# JAG QUEST — Vercel deploy (one-time, ~60 seconds)
+# JAG QUEST — Firebase deploy
 
-From this folder:
+One-time setup (if not done):
+    npm install -g firebase-tools
+    firebase login
 
-    npx vercel deploy --prod
+Deploy (from this folder):
+    firebase deploy --only hosting --project jag-q
 
-First run will:
-1. Ask you to log in (opens browser — use your Vercel account)
-2. Ask "Set up and deploy?" → Y
-3. Project name → jag-q
-4. Directory → ./ (just press Enter)
+If "jag-q" isn't the exact project ID, check with:
+    firebase projects:list
 
-It prints your live URL (jag-q.vercel.app or similar). Done.
-
-Future updates: replace app.js with a new build and run the same command.
+Notes:
+- Progress (checkmarks, categories, venues, replied status) saves in the
+  browser's localStorage — per device, per browser.
+- To rebuild after editing src/app.jsx:
+    npx esbuild src/main.jsx --bundle --minify --jsx=automatic --define:process.env.NODE_ENV='"production"' --outfile=public/app.js
