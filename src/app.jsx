@@ -924,6 +924,7 @@ function InquiriesPage({ done, toggle }) {
           ▓▓ SEP–OCT 2026 COLLISION MAP
         </div>
         {[
+          ["SEP 11", "HARANA @ Alabang — Steve Vesagas' father-in-law bday (via Tita Peachy)", C.yellow],
           ["SEP 14–19", "Kenkoy (ARDP) — tentative", C.yellow],
           ["SEP 22–30", "Labyrinth tech @ Black Box", C.yellow],
           ["OCT 1", "Labyrinth Gala Preview", C.yellow],
