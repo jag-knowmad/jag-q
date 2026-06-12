@@ -498,7 +498,7 @@ const INQUIRIES = [
     via: "MESSENGER",
     project: "Fire & Ice event w/ Sir Ice — 'pwede ka na ulit?'",
     detail: "Asking if I'm back in PH by August. Repeat client (Being Ice 2025, Ice concerts 2023–2025).",
-    timeline: "AUG 2026",
+    timeline: "AUG 22, 2026",
     need: "Availability confirmation — I land mid-July, so YES is possible",
   },
   {
@@ -921,9 +921,10 @@ function InquiriesPage({ done, toggle }) {
       {/* OCTOBER COLLISION MAP */}
       <div style={{ marginTop: 16, border: `1px solid ${C.magenta}`, background: C.panel, padding: "12px 14px" }}>
         <div style={{ fontFamily: mono, fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", color: C.magenta, marginBottom: 8 }}>
-          ▓▓ SEP–OCT 2026 COLLISION MAP
+          ▓▓ AUG–OCT 2026 COLLISION MAP
         </div>
         {[
+          ["AUG 22", "Fire & Ice event w/ Sir Ice (Kaye R.)", C.yellow],
           ["SEP 11", "HARANA @ Alabang — Steve Vesagas' father-in-law bday (via Tita Peachy)", C.yellow],
           ["SEP 14–19", "Kenkoy (ARDP) — tentative", C.yellow],
           ["SEP 22–30", "Labyrinth tech @ Black Box", C.yellow],
