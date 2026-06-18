@@ -21,6 +21,7 @@
     "mind-ar": "^1.2.5"
   },
   "devDependencies": {
-    "esbuild": "^0.28.1"
+    "esbuild": "^0.28.1",
+    "gifenc": "^1.0.3"
   }
 }

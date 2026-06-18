@@ -13,6 +13,6 @@ window.JAGQ_CARDS = {
     effect: 'clouds',
     // Tuned for this photo: treeline sits ~40% down, so horizon ~0.58 in
     // plane v-space (0 = bottom, 1 = top).
-    cloud: { horizon: 0.58, soft: 0.12, speed: 1.0, coverage: 0.92 },
+    cloud: { horizon: 0.68, soft: 0.07, speed: 1.0, coverage: 0.92 },
   },
 };
