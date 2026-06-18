@@ -31,4 +31,12 @@ http
     res.writeHead(200, { 'Content-Type': types[path.extname(file)] || 'application/octet-stream' });
     fs.createReadStream(file).pipe(res);
   })
-  .listen(port, () => console.log(`Serving public/ at http://localhost:${port}`));
+  .listen(port, () => {
+    console.log(`\n  AR Postcards running locally:`);
+    console.log(`    Home    →  http://localhost:${port}/`);
+    console.log(`    Viewer  →  http://localhost:${port}/view.html?card=frozen-lake`);
+    console.log(`    Studio  →  http://localhost:${port}/studio.html`);
+    console.log(`\n  Camera works on localhost. Open the Viewer, click "Bring it to life",`);
+    console.log(`  and hold up a print (or show public/cards/frozen-lake/target.jpg on another screen).`);
+    console.log(`  Press Ctrl+C to stop.\n`);
+  });

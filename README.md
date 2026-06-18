@@ -47,16 +47,27 @@ tools/
   serve.mjs                 ← tiny static dev server
 ```
 
-## Run it locally
+## Run it on your laptop (no install needed)
+
+The site is plain static files and the dev server uses only built-in Node —
+**you do not need `npm install`** (and shouldn't run it; a build-only dependency
+needs native libraries that aren't required to run the app).
 
 ```bash
-npm install            # dev/build only; the site itself needs no deps at runtime
-npm run dev            # http://localhost:8080  (camera works on localhost)
+git clone https://github.com/jag-knowmad/jag-q.git
+cd jag-q
+git checkout claude/ar-photo-animation-8tt58j
+node tools/serve.mjs          # prints the local URLs
 ```
 
-Open `http://localhost:8080/view.html?card=frozen-lake` on a laptop with a
-webcam, hold up a print (or another screen showing `public/cards/frozen-lake/target.jpg`),
-and the clouds appear over it.
+Then open **http://localhost:8080/view.html?card=frozen-lake** in Chrome or
+Safari on the same laptop, click **“Bring it to life”**, allow camera access,
+and hold up a print of the photo — or just show `public/cards/frozen-lake/target.jpg`
+full-screen on your phone — to the webcam. The clouds animate over the sky.
+
+> Camera APIs are allowed on `http://localhost`, so no HTTPS is needed for this
+> laptop test. (Testing on a *phone* later does need HTTPS — that's what the
+> deploy step is for.)
 
 ## Add your own postcard
 
