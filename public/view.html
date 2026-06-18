@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>AR Postcard</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Vendored locally so the app is fully self-contained. -->
+  <script src="lib/aframe.min.js"></script>
+  <script src="lib/mindar-image-aframe.prod.js"></script>
+  <script src="js/cloud-layer.js"></script>
+  <script src="js/cards.js"></script>
+</head>
+<body>
+  <div id="stage"></div>
+
+  <div id="overlay">
+    <div id="card-preview"></div>
+    <h1 id="card-title">AR Postcard</h1>
+    <p id="card-subtitle">Point your camera at the postcard</p>
+    <button id="start-btn" class="btn">Bring it to life</button>
+    <p class="note">Tap to start the camera, then hold your phone over the postcard.</p>
+  </div>
+
+  <div id="scan-hint" class="hidden">
+    <span class="pulse"></span>
+    <span>Point at the postcard…</span>
+  </div>
+
+  <div id="error" class="hidden"></div>
+
+  <script src="js/viewer.js"></script>
+</body>
+</html>

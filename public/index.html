@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AR Postcards — bring your photos to life</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/cards.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="brand">AR Postcards</div>
+    <h1 class="hero">Your photographs, brought to life.</h1>
+    <p class="lead">
+      Print a photo, stick an NFC tag on the back, and hand it to someone. They
+      tap their phone, point the camera at the picture, and the scene animates —
+      right on top of the print. No app to install.
+    </p>
+
+    <h2 style="margin-top:36px">Your postcards</h2>
+    <div class="cards-grid" id="cards-grid"></div>
+
+    <div class="panel">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li><b>Print</b> the photo as a postcard.</li>
+        <li><b>Program an NFC tag</b> with the card's viewer link (each tile below has a “Copy link” button) and stick it on the back.</li>
+        <li><b>Recipient taps</b> the postcard with their phone — the link opens, the camera starts, and the animation plays over the photo.</li>
+      </ol>
+      <p style="color:var(--muted)">
+        Want to add your own photo? Open the <a href="studio.html">Studio</a> to
+        generate a tracking marker in your browser, or run
+        <code>npm run add-card</code> locally.
+      </p>
+    </div>
+
+    <div class="footer">
+      Built with <a href="https://github.com/hiukim/mind-ar-js">MindAR</a> +
+      A-Frame. Works in mobile Safari &amp; Chrome over HTTPS.
+    </div>
+  </div>
+
+  <script>
+    const grid = document.getElementById('cards-grid');
+    const origin = location.href.replace(/index\.html$/, '').replace(/\/$/, '');
+    Object.entries(window.JAGQ_CARDS).forEach(([id, c]) => {
+      const link = `${origin}/view.html?card=${id}`;
+      const tile = document.createElement('div');
+      tile.className = 'card-tile';
+      tile.innerHTML = `
+        <a href="view.html?card=${id}" style="text-decoration:none;color:inherit">
+          <div class="thumb" style="background-image:url(${c.preview})"></div>
+          <div class="meta">
+            <h3>${c.title}</h3>
+            <p>${c.subtitle || ''}</p>
+          </div>
+        </a>
+        <div class="meta" style="padding-top:0">
+          <button class="btn" style="font-size:0.8rem;padding:8px 16px" data-link="${link}">Copy NFC link</button>
+        </div>`;
+      grid.appendChild(tile);
+    });
+    grid.addEventListener('click', async (e) => {
+      const btn = e.target.closest('button[data-link]');
+      if (!btn) return;
+      try {
+        await navigator.clipboard.writeText(btn.dataset.link);
+        const t = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(() => (btn.textContent = t), 1500);
+      } catch {
+        prompt('Copy this link for the NFC tag:', btn.dataset.link);
+      }
+    });
+  </script>
+</body>
+</html>
