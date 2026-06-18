@@ -1,0 +1,36 @@
+name: Deploy to GitHub Pages
+
+# Builds the static site in public/ and publishes it to GitHub Pages.
+# configure-pages (enablement: true) turns Pages on automatically the first
+# time this runs, so no manual repo-settings step is needed.
+
+on:
+  push:
+    branches: ["claude/ar-photo-animation-8tt58j", "main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+      - id: deployment
+        uses: actions/deploy-pages@v4
