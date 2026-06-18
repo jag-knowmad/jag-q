@@ -70,6 +70,10 @@ a { color: var(--accent); }
 .btn:active { transform: translateY(1px); }
 
 .note { color: var(--muted); font-size: 0.82rem; margin-top: 18px; max-width: 300px; }
+.how { margin-top: 18px; max-width: 320px; color: var(--muted); font-size: 0.82rem; }
+.how summary { cursor: pointer; color: var(--accent); }
+.how p { margin: 10px 0 0; line-height: 1.5; }
+.how code { font-size: 0.95em; }
 
 #scan-hint {
   position: fixed;

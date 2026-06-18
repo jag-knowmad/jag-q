@@ -72,20 +72,27 @@ AFRAME.registerComponent('cloud-layer', {
       void main() {
         vec2 uv = vUv;
 
-        // Two cloud layers drifting at different speeds -> parallax/depth.
-        vec2 p1 = vec2(uv.x * 3.0 + uTime * 0.012, uv.y * 2.2 + uTime * 0.002);
-        vec2 p2 = vec2(uv.x * 6.5 - uTime * 0.022, uv.y * 4.5 + 7.3);
-        float n = fbm(p1) * 0.62 + fbm(p2) * 0.38;
+        // Clouds are wider than tall, so stretch the domain horizontally.
+        vec2 q = vec2(uv.x * 2.4, uv.y * 4.0);
 
-        // Shape the noise into soft cloud puffs.
-        float density = smoothstep(0.50, 0.92, n);
+        // Big drifting shapes + faster fine detail for wispy edges.
+        float base = fbm(q + vec2(uTime * 0.013, uTime * 0.002));
+        float detail = fbm(q * 2.7 + vec2(-uTime * 0.03, 7.3));
+        float n = base * 0.7 + detail * 0.3;
+
+        // Low-frequency coverage so the sky has open, clear-blue patches
+        // instead of a uniform overcast.
+        float cover = fbm(vec2(uv.x * 1.1 + uTime * 0.006, uv.y * 1.4));
+        float threshold = mix(0.60, 0.40, cover);
+        float density = smoothstep(threshold, threshold + 0.26, n);
 
         // Base sky gradient: paler near the horizon, deeper blue up high.
         float g = smoothstep(uHorizon, 1.0, uv.y);
         vec3 sky = mix(uSkyLow, uSkyHigh, g);
 
-        // Clouds: dark underside blending up to a sunlit top.
-        vec3 cloudCol = mix(uCloudDark, uCloud, smoothstep(0.45, 1.0, n));
+        // Clouds: dark underside blending up to a sunlit (slightly warm) top.
+        float lit = smoothstep(0.45, 1.0, n);
+        vec3 cloudCol = mix(uCloudDark, uCloud, lit) + vec3(0.03, 0.02, 0.0) * lit;
         vec3 col = mix(sky, cloudCol, density);
 
         // Vertical masks: nothing below the horizon, gentle fade at the top.
