@@ -69,6 +69,21 @@ full-screen on your phone — to the webcam. The clouds animate over the sky.
 > laptop test. (Testing on a *phone* later does need HTTPS — that's what the
 > deploy step is for.)
 
+## Test on your phone (still local, no deploy)
+
+Phones block the camera over plain `http://` on a LAN address, so the laptop's
+`localhost` server won't work from a phone. Run the local **HTTPS** server
+instead — your phone connects to your laptop over Wi-Fi:
+
+```bash
+node tools/serve-https.mjs       # generates a self-signed cert the first time
+```
+
+It prints a `https://<your-laptop-ip>:8443/view.html?card=frozen-lake` URL.
+On your phone (same Wi-Fi), open it, tap **Advanced → Proceed** past the
+"Not Private" warning (expected — the cert is self-signed and it's your own
+machine), allow the camera, and point it at the printed photo.
+
 ## Add your own postcard
 
 **Option A — in the browser (no terminal):** open `studio.html`, pick a photo,

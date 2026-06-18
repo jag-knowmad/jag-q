@@ -6,7 +6,8 @@
   "scripts": {
     "add-card": "node tools/add-card.mjs",
     "build:studio": "esbuild tools/studio-compiler.entry.js --bundle --format=iife --minify --outfile=public/lib/studio-compiler.js",
-    "dev": "node tools/serve.mjs"
+    "dev": "node tools/serve.mjs",
+    "dev:https": "node tools/serve-https.mjs"
   },
   "repository": {
     "type": "git",
